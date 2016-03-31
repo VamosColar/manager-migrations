@@ -1,0 +1,24 @@
+{
+  "name": "vamos-colar/manager-migrations",
+  "description": "Gerenciador de migrations.",
+  "authors": [
+    {
+      "name": "Ediaimo Borges - edyonil",
+      "email": "edyonil@gmail.com"
+    }
+  ],
+  "license": [
+    "MIT"
+  ],
+  "require": {
+    "php": ">=5.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "VamosColar\\ManagerMigrations\\": "src/"
+    }
+  }
+}
