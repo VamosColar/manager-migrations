@@ -45,4 +45,41 @@ class MigrationsTest extends \PHPUnit_Framework_TestCase
         
     }
 
+    public function testDiretorioValido()
+    {
+        $migrations = new Migrations();
+
+        $caminho = './migrations';
+
+        $objetoRetorno = $migrations->setCaminho($caminho);
+
+        $arquivo = is_dir($objetoRetorno->getCaminho());
+
+        $this->assertTrue($arquivo, 'Arquivo não encontrado');
+    }
+
+    public function testArquivoDentroDeUmDiretorio()
+    {
+        $migrations = new Migrations();
+
+        $caminho = './migrations';
+
+        $objetoRetorno = $migrations->setCaminho($caminho);
+
+        $arquivos = scandir($objetoRetorno->getCaminho());
+
+        $this->assertTrue(count($arquivos) > 2, 'Não existe nenhum arquivo');
+    }
+
+    public function testClasseMigrationsConfigurada()
+    {
+        $migrations = new Migrations();
+
+        $migrations->setClassMigrationName('Migration');
+
+        $valor = $migrations->getClassMigrationName();
+
+        $this->assertEquals('Migration', $valor, 'Nome da Classe da Migration não configurado');
+    }
+
 }

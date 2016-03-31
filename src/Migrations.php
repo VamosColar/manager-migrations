@@ -20,4 +20,14 @@ class Migrations
         return $this;
     }
 
+    public function setClassMigrationName($migrationName)
+    {
+        return $this;
+    }
+
+    public function getClassMigrationName()
+    {
+        return 'Migrations';
+    }
+
 }
